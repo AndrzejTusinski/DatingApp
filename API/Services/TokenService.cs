@@ -1,16 +1,14 @@
-using System;
-using System.IdentityModel.Tokens.Jwt;
+﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using API.Entities;
-using API.Interfaces;
 using Microsoft.IdentityModel.Tokens;
 
-namespace API.Services;
+namespace API;
 
 public class TokenService(IConfiguration config) : ITokenService
 {
-    public string CreateToken(AppUser user) 
+    public string CreateToken(AppUser user)
     {
         var tokenKey = config["TokenKey"] ?? throw new Exception("Cannot access tokenKey from appsettings");
         if (tokenKey.Length < 64) throw new Exception("Your tokenKey needs to be longer");
@@ -18,7 +16,6 @@ public class TokenService(IConfiguration config) : ITokenService
 
         var claims = new List<Claim>
         {
-
             new(ClaimTypes.NameIdentifier, user.UserName)
         };
 
