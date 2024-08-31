@@ -1,7 +1,4 @@
-using System;
-
-namespace API.DTOs;
-
+﻿namespace API;
 
 public class MemberUpdateDto
 {
@@ -11,4 +8,3 @@ public class MemberUpdateDto
     public string? City { get; set; }
     public string? Country { get; set; }
 }
-

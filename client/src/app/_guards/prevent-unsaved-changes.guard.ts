@@ -7,4 +7,3 @@ export const preventUnsavedChangesGuard: CanDeactivateFn<MemberEditComponent> = 
   }
   return true;
 };
-
